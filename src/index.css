@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --color-brand-50: #ecfdf7;
+  --color-brand-100: #d1faec;
+  --color-brand-200: #a7f3d9;
+  --color-brand-300: #6ee7c1;
+  --color-brand-400: #34d3a3;
+  --color-brand-500: #10b98a;
+  --color-brand-600: #059673;
+  --color-brand-700: #04785f;
+  --color-brand-800: #065f4d;
+  --color-brand-900: #064e40;
+  --color-ink: #0f1d2b;
+  --animate-rise: rise 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-sheet: sheet 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-fade: fade 0.2s ease-out both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes sheet {
+    from { transform: translateY(100%); }
+    to { transform: none; }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    background: #f3f6f8;
+  }
+  body {
+    @apply bg-[#f3f6f8] font-sans text-ink antialiased;
+    min-height: 100dvh;
+  }
+  input, select, textarea, button {
+    font: inherit;
+  }
+  /* Hindari zoom otomatis di iPhone saat mengetik */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  input[type='date'] {
+    min-height: 3.25rem;
+  }
+}
+
+@utility hero-bg {
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgb(56 189 248 / 0.35), transparent 60%),
+    radial-gradient(90% 70% at 0% 100%, rgb(52 211 163 / 0.35), transparent 60%),
+    linear-gradient(135deg, #064e40 0%, #04785f 45%, #0b5d7a 100%);
+}
+
+@utility card {
+  @apply rounded-3xl bg-white shadow-[0_1px_2px_rgb(15_29_43/0.04),0_8px_24px_-12px_rgb(15_29_43/0.12)] ring-1 ring-slate-900/5;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
