@@ -35,9 +35,9 @@ Tanpa pengaturan Supabase, aplikasi berjalan dalam **mode percobaan** dengan dat
    ```
 4. Buat akunnya di **Authentication → Users → Add user → Create new user**. Isi email dan kata sandi, centang **Auto Confirm User**, lalu ulangi untuk akun kedua.
 5. **Penting:** matikan pendaftaran umum di **Authentication → Sign In / Providers**. Matikan **Allow new users to sign up** agar orang lain tidak bisa membuat akun sendiri.
-6. Salin alamat dan kunci dari **Project Settings → API** (atau tombol **Connect**):
+6. Tekan **Connect → Framework → React (Vite)** dan salin dua nilainya:
    - Project URL → `VITE_SUPABASE_URL`
-   - kunci `anon` / `publishable` → `VITE_SUPABASE_ANON_KEY`
+   - kunci `sb_publishable_...` → `VITE_SUPABASE_PUBLISHABLE_KEY` (project lama: kunci `anon` `eyJ...` → `VITE_SUPABASE_ANON_KEY`)
 
 Hanya email yang terdaftar di tabel `editors` yang bisa mengubah data. Semua orang bisa melihat.
 
@@ -45,7 +45,7 @@ Hanya email yang terdaftar di tabel `editors` yang bisa mengubah data. Semua ora
 
 1. Masuk ke <https://vercel.com> memakai akun GitHub.
 2. **Add New → Project**, lalu pilih repositori ini.
-3. Di **Environment Variables**, isi `VITE_SUPABASE_URL` dan `VITE_SUPABASE_ANON_KEY` dari langkah 1.6.
+3. Di **Environment Variables**, isi `VITE_SUPABASE_URL` dan `VITE_SUPABASE_PUBLISHABLE_KEY` dari langkah 1.6.
 4. Klik **Deploy**. Alamat seperti `https://kas-jembatan.vercel.app` siap dibagikan ke warga.
 
 (Netlify atau Cloudflare Pages juga bisa. Perintah build `npm run build`, folder hasil `dist`.)
